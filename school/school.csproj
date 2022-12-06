@@ -94,8 +94,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Image\" />
+    <Resource Include="Image\English.jpg" />
+    <Resource Include="Image\for company.jpg" />
+    <Resource Include="Image\online lessons.jpg" />
+    <Resource Include="Image\Испанский язык.jpg" />
+    <Resource Include="Image\Итальянский язык.jpg" />
+    <Resource Include="Image\киноклуб.jpg" />
+    <Resource Include="Image\Китайский язык.jpg" />
+    <Resource Include="Image\Немецкий язык.png" />
+    <Resource Include="Image\Подготовка к экзамену ACT.png" />
+    <Resource Include="Image\Подготовка к экзамену GMAT.png" />
+    <Resource Include="Image\Подготовка к экзамену GRE.jpeg" />
+    <Resource Include="Image\Подготовка к экзамену IELTS.jpg" />
+    <Resource Include="Image\Подготовка к экзамену SAT.png" />
+    <Resource Include="Image\Подготовка к экзамену TOEFL.jpg" />
+    <Resource Include="Image\Португальский язык.jpg" />
+    <Resource Include="Image\Французский язык.jpg" />
+    <Resource Include="Image\Японский язык.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
