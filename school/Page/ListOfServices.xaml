@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListOfServices">
- 
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
@@ -19,16 +19,16 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-            
+
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="170"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <TextBlock>Введите название услуги: </TextBlock>
+                        <TextBlock>Введите название услуги:</TextBlock>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Column="1">
@@ -39,15 +39,15 @@
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="170"/>
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <TextBlock>Введите описание услуги:</TextBlock>
                     </StackPanel>
                 </Grid>
-                <Grid Grid.Column="1">
+                <Grid Grid.Column="1" Grid.ColumnSpan="2">
                     <StackPanel VerticalAlignment="Center" >
                         <TextBox Name="SearchOpisanie" TextChanged="SearchOpisanie_TextChanged"></TextBox>
                     </StackPanel>
@@ -85,48 +85,43 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Style="{StaticResource BorderStyle}" >
-                            <Grid Height="200" >
+                            <Grid Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="300"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0" VerticalAlignment="Center">
+                                <Grid Grid.Column="0" >
                                     <Image Name="ImageServes" Source="{Binding MainImagePath}"></Image>
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
-                                        <RowDefinition/>
+                                        <RowDefinition Height="30"/>
                                     </Grid.RowDefinitions>
                                     <Grid Grid.Row="0">
                                         <StackPanel>
                                             <TextBlock Name="NameYslygi" Text="{Binding Title}" Style="{StaticResource TextList}"></TextBlock>
-                                            <TextBlock Name="Price" Text="{Binding price_and_time}" ></TextBlock>
-                                            <TextBlock Name="Skidka" Text="{Binding skidka}"></TextBlock>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Name="Price1" Text="{Binding pric}" TextDecorations="Strikethrough" Style="{StaticResource TextList}"></TextBlock>
+                                                <TextBlock Name="Price" Text="{Binding price_and_time}" Style="{StaticResource TextList}"></TextBlock>
+                                            </StackPanel>
+
+                                            <TextBlock Name="Skidka" Text="{Binding skidka}" Style="{StaticResource TextList}"></TextBlock>
                                         </StackPanel>
                                     </Grid>
                                     <Grid Grid.Row="1" >
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition/>
-                                            <ColumnDefinition/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid Grid.Column="0">
-                                            <StackPanel VerticalAlignment="Center">
-                                                <Button Name="Delet">Удаление</Button>
-                                            </StackPanel>
-                                        </Grid>
-                                        <Grid Grid.Column="1">
-                                            <StackPanel VerticalAlignment="Center">
-                                                <Button Name="Update">Редактирование</Button>
-                                            </StackPanel>
-                                        </Grid>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Name="Delet" Visibility="{Binding btn_admin}" >Удаление</Button>
+                                            <Button Name="Update" Visibility="{Binding btn_admin}">Редактирование</Button>
+                                        </StackPanel>
+
                                     </Grid>
                                 </Grid>
                             </Grid>
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                
+
             </ListView>
         </Grid>
         <Grid Grid.Row="2">

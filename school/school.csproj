@@ -87,6 +87,9 @@
     <Compile Include="Manufacturer.cs">
       <DependentUpon>Base.tt</DependentUpon>
     </Compile>
+    <Compile Include="Page\Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Page\ListOfServices.xaml.cs">
       <DependentUpon>ListOfServices.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Page\Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page\ListOfServices.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -32,5 +32,18 @@ namespace school
         {
             PanelDann.Navigate(new Page.ListOfServices());
         }
+
+        private void admin_Click(object sender, RoutedEventArgs e)
+        {
+            Page.Admin windowPerson = new Page.Admin();  // создание объекта окна
+            windowPerson.ShowDialog();
+            ClassPage.FrameNavigate.perehod.Navigate(new Page.ListOfServices());
+        }
+
+
+        //private void admin_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    Page.ListOfServices.admin=admin.Text;
+        //}
     }
 }

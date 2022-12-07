@@ -15,7 +15,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
+                
+                
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -24,10 +25,12 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                     <Button Name="Yslygi" Click="Yslygi_Click">Услуги</Button>
+                    <Button Name="admin" Click="admin_Click">Админ</Button>
                 </StackPanel>
             </Grid>
+         
         </Grid>
         <Grid Grid.Row="1">
             <Frame Name="PanelDann"  NavigationUIVisibility="Hidden"></Frame>
