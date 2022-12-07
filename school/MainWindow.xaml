@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:school"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Леарн" Height="450" Width="800" Icon="./Image/school_logo.ico">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#e7fabf">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Height="70" Source="./Image/school_logo.ico" Style="{StaticResource ImageLogo}"></Image>
+                    <TextBlock VerticalAlignment="Center" Style="{StaticResource LogoText}">Леарн</TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Button Name="Yslygi" Click="Yslygi_Click">Услуги</Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Frame Name="PanelDann"  NavigationUIVisibility="Hidden"></Frame>
+        </Grid>
     </Grid>
 </Window>

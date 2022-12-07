@@ -23,6 +23,14 @@ namespace school
         public MainWindow()
         {
             InitializeComponent();
+            ClassPage.Base.BD=new BDBase();
+            PanelDann.Navigate(new Page.ListOfServices());
+            ClassPage.FrameNavigate.perehod = PanelDann;
+        }
+
+        private void Yslygi_Click(object sender, RoutedEventArgs e)
+        {
+            PanelDann.Navigate(new Page.ListOfServices());
         }
     }
 }
