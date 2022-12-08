@@ -201,6 +201,7 @@
       <DependentUpon>Base.edmx</DependentUpon>
       <LastGenOutput>Base.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\picture.png" />
     <Resource Include="Image\Английский язык.jpg" />
     <Resource Include="Image\for company.jpg" />
     <Resource Include="Image\online lessons.jpg" />

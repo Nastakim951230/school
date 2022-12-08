@@ -7,10 +7,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddAndUpdate">
-
+ <ScrollViewer>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
+       
+            <Grid.RowDefinitions>
+            <RowDefinition Height="270"/>
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
@@ -20,28 +21,32 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                
-                <StackPanel>
-                    <Image Name="ImageServis" ></Image>
+               
+                    <StackPanel>
+                    <Image Name="ImageServis" Source="../Image/picture.png" Width="180" Height="180" ></Image>
                     <Button Name="addPhoto" Click="addPhoto_Click">Добавить изображение</Button>
                     <Button Name="UpdatePhoto" Visibility="Collapsed" Click="UpdatePhoto_Click">Заменить изображение</Button>
                 </StackPanel>
+               
             </Grid>
             <Grid Grid.Column="1">
-                <StackPanel>
+                
+                    <StackPanel>
+                        <TextBlock Name="IdServ" Visibility="Collapsed"></TextBlock>
                     <GroupBox Header="Название услуги">
                     <TextBox Name="NameYsl"></TextBox>
                 </GroupBox>
                     <GroupBox Header="Стоимость">
                         <TextBox Name="PriceYsl"></TextBox>
                     </GroupBox>
-                    <GroupBox Header="Длительность услуги">
+                    <GroupBox Header="Длительность услуги в минутах">
                         <TextBox Name="TimeYsl"></TextBox>
                     </GroupBox>
                     <GroupBox Header="Скидка">
                         <TextBox Name="Skidka"></TextBox>
                     </GroupBox>
                 </StackPanel>
+              
             </Grid>
             
         </Grid>
@@ -55,5 +60,7 @@
                 <Button Name="add" Click="add_Click">Сохранить</Button>
             </StackPanel>
         </Grid>
+            
     </Grid>
+    </ScrollViewer>
 </Page>

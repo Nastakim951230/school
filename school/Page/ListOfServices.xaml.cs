@@ -56,10 +56,9 @@ namespace school.Page
                 List<Service> trl = services.Where(x => x.Description != null).ToList();
                 if (trl.Count > 0)
                 {
-                    foreach (Service tr in trl)
-                    {
-                        services = services.Where(x => x.Description.ToLower().Contains(SearchOpisanie.Text.ToLower())).ToList();
-                    }
+                   
+                 services = trl.Where(x => x.Description.ToLower().Contains(SearchOpisanie.Text.ToLower())).ToList();
+                    
                 }
                 else
                 {
@@ -218,6 +217,14 @@ namespace school.Page
         private void add_service_Click(object sender, RoutedEventArgs e)
         {
             ClassPage.FrameNavigate.perehod.Navigate(new Page.AddAndUpdate());
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int id = Convert.ToInt32(btn.Uid);
+            Service serv = ClassPage.Base.BD.Service.FirstOrDefault(x => x.ID == id);
+            ClassPage.FrameNavigate.perehod.Navigate(new Page.AddAndUpdate(serv));
         }
     }
 }
