@@ -25,6 +25,7 @@ namespace school.Page
         string path;
         bool flagUpdate;
         Service ser;
+        ServicePhoto servicephoto;
        
         public AddAndUpdate()
         {
@@ -178,8 +179,15 @@ namespace school.Page
                                     {
                                         ser.Description = Opisanie.Text;
                                     }
+                                    
+                                       
 
+                                    
                                     ClassPage.Base.BD.Service.Add(ser);
+                                    servicephoto = new ServicePhoto();
+                                        servicephoto.ServiceID = ser.ID;
+                                        servicephoto.PhotoPath = path;
+                                        ClassPage.Base.BD.ServicePhoto.Add(servicephoto);
 
                                     ClassPage.Base.BD.SaveChanges();
                                     MessageBox.Show("Информация добавлена");
@@ -215,6 +223,14 @@ namespace school.Page
                                 if (path == null)
                                 {
                                     path = ser.MainImagePath;
+                                }
+                                if(path != null)
+                                {
+                                    servicephoto = new ServicePhoto();
+                                    servicephoto.ServiceID = ser.ID;
+                                    servicephoto.PhotoPath = path;
+                                    ClassPage.Base.BD.ServicePhoto.Add(servicephoto);
+
                                 }
                                 ser.MainImagePath = path;
                                 if (Opisanie.Text == "")
