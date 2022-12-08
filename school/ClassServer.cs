@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace school
 {
@@ -37,7 +38,24 @@ namespace school
             }
         }
 
+        public SolidColorBrush TextBrush
+        {
+            get
+            {
+                var brushConverter = new BrushConverter();
 
+                if (Discount == 0)
+                {
+                    return (SolidColorBrush)(Brush)brushConverter.ConvertFrom("#000");
+                }
+                else
+                {
+                    return (SolidColorBrush)(Brush)brushConverter.ConvertFrom("#309c09");
+
+                }
+
+            }
+        }
         public string price_and_time
         {
             get

@@ -1,0 +1,59 @@
+﻿<Page x:Class="school.Page.AddAndUpdate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:school.Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddAndUpdate">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                
+                <StackPanel>
+                    <Image Name="ImageServis" ></Image>
+                    <Button Name="addPhoto" Click="addPhoto_Click">Добавить изображение</Button>
+                    <Button Name="UpdatePhoto" Visibility="Collapsed" Click="UpdatePhoto_Click">Заменить изображение</Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel>
+                    <GroupBox Header="Название услуги">
+                    <TextBox Name="NameYsl"></TextBox>
+                </GroupBox>
+                    <GroupBox Header="Стоимость">
+                        <TextBox Name="PriceYsl"></TextBox>
+                    </GroupBox>
+                    <GroupBox Header="Длительность услуги">
+                        <TextBox Name="TimeYsl"></TextBox>
+                    </GroupBox>
+                    <GroupBox Header="Скидка">
+                        <TextBox Name="Skidka"></TextBox>
+                    </GroupBox>
+                </StackPanel>
+            </Grid>
+            
+        </Grid>
+        <Grid Grid.Row="1">
+            <GroupBox Header="Описание">
+                <TextBox Name="Opisanie"></TextBox>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel VerticalAlignment="Center">
+                <Button Name="add" Click="add_Click">Сохранить</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

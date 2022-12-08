@@ -11,6 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
+            <RowDefinition Height="30" />
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
@@ -80,7 +81,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <ListView Name="ListYslovie" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -103,7 +104,7 @@
                                             <TextBlock Name="NameYslygi" Text="{Binding Title}" Style="{StaticResource TextList}"></TextBlock>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Name="Price1" Text="{Binding pric}" TextDecorations="Strikethrough" Style="{StaticResource TextList}"></TextBlock>
-                                                <TextBlock Name="Price" Text="{Binding price_and_time}" Style="{StaticResource TextList}"></TextBlock>
+                                                <TextBlock Name="Price" Text="{Binding price_and_time}" Foreground="{Binding TextBrush}" Style="{StaticResource TextList}"></TextBlock>
                                             </StackPanel>
 
                                             <TextBlock Name="Skidka" Text="{Binding skidka}" Style="{StaticResource TextList}"></TextBlock>
@@ -111,7 +112,7 @@
                                     </Grid>
                                     <Grid Grid.Row="1" >
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Name="Delet" Visibility="{Binding btn_admin}" >Удаление</Button>
+                                            <Button Uid="{Binding ID}" Name="Delet" Click="Delet_Click" Visibility="{Binding btn_admin}" >Удаление</Button>
                                             <Button Name="Update" Visibility="{Binding btn_admin}">Редактирование</Button>
                                         </StackPanel>
 
@@ -124,9 +125,14 @@
 
             </ListView>
         </Grid>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Name="kolvo"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center">
+                <Button Name="add_service" Visibility="Collapsed" Click="add_service_Click">Добавить новую услугу</Button>
             </StackPanel>
         </Grid>
     </Grid>

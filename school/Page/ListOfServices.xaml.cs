@@ -31,10 +31,12 @@ namespace school.Page
             if(admin=="0000")
             {
                 Service.btn_admin=Visibility.Visible;
+                add_service.Visibility = Visibility.Visible;
             }
             else
             {
                 Service.btn_admin=Visibility.Collapsed;
+                add_service.Visibility = Visibility.Collapsed;
             }
         }
         void Filter()
@@ -192,6 +194,30 @@ namespace school.Page
         private void Sortirovka_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Filter();
+        }
+
+        private void Delet_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn= (Button)sender;
+            int id = Convert.ToInt32(btn.Uid);
+            Service serv = ClassPage.Base.BD.Service.FirstOrDefault(x=>x.ID==id);
+            List<ClientService> clientservices = ClassPage.Base.BD.ClientService.Where(x => x.ServiceID == serv.ID).ToList();
+            if(clientservices.Count>0)
+            {
+                MessageBox.Show("Данную услугу нельзя удалить");
+            }
+            else
+            {
+                ClassPage.Base.BD.Service.Remove(serv);
+                ClassPage.Base.BD.SaveChanges();
+                ClassPage.FrameNavigate.perehod.Navigate(new Page.ListOfServices());
+            }
+
+        }
+
+        private void add_service_Click(object sender, RoutedEventArgs e)
+        {
+            ClassPage.FrameNavigate.perehod.Navigate(new Page.AddAndUpdate());
         }
     }
 }

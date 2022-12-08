@@ -87,6 +87,9 @@
     <Compile Include="Manufacturer.cs">
       <DependentUpon>Base.tt</DependentUpon>
     </Compile>
+    <Compile Include="Page\AddAndUpdate.xaml.cs">
+      <DependentUpon>AddAndUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Page\Admin.xaml.cs">
       <DependentUpon>Admin.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Page\AddAndUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page\Admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

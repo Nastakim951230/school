@@ -20,17 +20,21 @@ namespace school
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         public MainWindow()
         {
             InitializeComponent();
             ClassPage.Base.BD=new BDBase();
             PanelDann.Navigate(new Page.ListOfServices());
             ClassPage.FrameNavigate.perehod = PanelDann;
+           
         }
 
         private void Yslygi_Click(object sender, RoutedEventArgs e)
         {
+            
             PanelDann.Navigate(new Page.ListOfServices());
+            
         }
 
         private void admin_Click(object sender, RoutedEventArgs e)
@@ -40,10 +44,5 @@ namespace school
             ClassPage.FrameNavigate.perehod.Navigate(new Page.ListOfServices());
         }
 
-
-        //private void admin_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    Page.ListOfServices.admin=admin.Text;
-        //}
     }
 }

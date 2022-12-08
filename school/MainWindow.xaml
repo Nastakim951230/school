@@ -28,6 +28,7 @@
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                     <Button Name="Yslygi" Click="Yslygi_Click">Услуги</Button>
                     <Button Name="admin" Click="admin_Click">Админ</Button>
+                   
                 </StackPanel>
             </Grid>
          
