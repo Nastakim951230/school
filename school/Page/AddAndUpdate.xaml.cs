@@ -31,6 +31,7 @@ namespace school.Page
         public AddAndUpdate()
         {
             InitializeComponent();
+            addPhotos.Visibility = Visibility.Collapsed;
         }
         public AddAndUpdate(Service ser)
         {
@@ -134,6 +135,15 @@ namespace school.Page
             path = OFD.FileName;  // извлекаем полный путь к картинке
             string[] arrayPath = path.Split('\\');  // разделяем путь к картинке в массив
             path = "\\" + arrayPath[arrayPath.Length - 2] + "\\" + arrayPath[arrayPath.Length - 1];  // записываем в бд путь, начиная с имени папки
+               List<ServicePhoto> photos = ClassPage.Base.BD.ServicePhoto.Where(x=>x.ServiceID == ser.ID).ToList();
+                if(photos.Count==0)
+                {
+                    servicephoto = new ServicePhoto();
+                    servicephoto.ServiceID = ser.ID;
+                    servicephoto.PhotoPath = ser.MainImagePath;
+                    ClassPage.Base.BD.ServicePhoto.Add(servicephoto);
+                }
+
             BitmapImage image = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
             ImageServis.Source = image;
             }
@@ -142,23 +152,29 @@ namespace school.Page
                 MessageBox.Show("Что то пошло не так", "Ошибка", MessageBoxButton.OK);
             }
         }
-
+        int n = 0;
         private void UpdatePhoto_Click(object sender, RoutedEventArgs e)
         {
             List<ServicePhoto> servicePhoto = ClassPage.Base.BD.ServicePhoto.Where(x => x.ServiceID == ser.ID).ToList();
-            if (servicePhoto != null)  // если объект не пустой, начинает переводить байтовый массив в изображение
+            if (servicePhoto.Count > 1)
             {
-
-                BitmapImage img = new BitmapImage(new Uri(servicePhoto[0].PhotoPath, UriKind.RelativeOrAbsolute));
+                
+                BitmapImage img = new BitmapImage(new Uri(servicePhoto[n].PhotoPath, UriKind.RelativeOrAbsolute));
                 ImageServis.Source = img;
+                
+                Next.Visibility = Visibility.Visible;
+                Bakc.Visibility = Visibility.Visible;
+                sohranitPhoto.Visibility = Visibility.Visible;
+                addPhoto.Visibility = Visibility.Collapsed;
+                UpdatePhoto.Visibility = Visibility.Collapsed;
+                nazad.Visibility = Visibility.Visible;
+                addPhotos.Visibility = Visibility.Collapsed;
+                DeletPhoto.Visibility = Visibility.Visible;
             }
-            Next.Visibility=Visibility.Visible;
-            Bakc.Visibility=Visibility.Visible;
-            sohranitPhoto.Visibility=Visibility.Visible;
-            addPhoto.Visibility=Visibility.Collapsed;
-            UpdatePhoto.Visibility=Visibility.Collapsed;
-            nazad.Visibility=Visibility.Visible;
-            addPhotos.Visibility = Visibility.Collapsed;
+            else
+            {
+                MessageBox.Show("Нет дополнительных фотографий", "Ошибка", MessageBoxButton.OK);
+            }
            
         }
 
@@ -268,10 +284,11 @@ namespace school.Page
             }
             
         }
-        int n = 0;
+        
         private void Next_Click(object sender, RoutedEventArgs e)
         {
             List<ServicePhoto> servicePhoto = ClassPage.Base.BD.ServicePhoto.Where(x => x.ServiceID == ser.ID).ToList();
+            
             n++;
             if (Bakc.IsEnabled == false)
             {
@@ -325,6 +342,7 @@ namespace school.Page
             nazad.Visibility = Visibility.Collapsed;
             UpdatePhoto.Visibility = Visibility.Visible;
             addPhotos.Visibility = Visibility.Visible;
+            DeletPhoto.Visibility = Visibility.Collapsed;
         }
 
         private void nazad_Click(object sender, RoutedEventArgs e)
@@ -337,8 +355,14 @@ namespace school.Page
             nazad.Visibility = Visibility.Collapsed;
             UpdatePhoto.Visibility = Visibility.Visible;
             addPhotos.Visibility = Visibility.Visible;
-        }
+            DeletPhoto.Visibility = Visibility.Collapsed;
+            if (ser.MainImagePath != null)
+            {
+                BitmapImage img = new BitmapImage(new Uri(ser.MainImagePath, UriKind.RelativeOrAbsolute));
+                ImageServis.Source = img;
+            }
 
+        }
         private void addPhotos_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -365,6 +389,22 @@ namespace school.Page
             catch
             {
                 MessageBox.Show("Что-то пошло не так");
+            }
+        }
+
+        private void DeletPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            List<ServicePhoto> photos = ClassPage.Base.BD.ServicePhoto.Where(x=>x.ServiceID==ser.ID).ToList();
+            if (photos[n].PhotoPath != ser.MainImagePath)
+            {
+                ServicePhoto photo = photos.FirstOrDefault(x => x.PhotoPath == photos[n].PhotoPath);
+                ClassPage.Base.BD.ServicePhoto.Remove(photo);
+                ClassPage.Base.BD.SaveChanges();
+                ClassPage.FrameNavigate.perehod.Navigate(new Page.AddAndUpdate(ser));
+            }
+            else
+            {
+                MessageBox.Show("Данную фотографию нельзя удалить, так как она является обязательной", "Ошибка", MessageBoxButton.OK);
             }
         }
     }

@@ -32,6 +32,7 @@
                     <Button Name="addPhoto" Click="addPhoto_Click" Visibility="Visible">Добавить изображение</Button>
                         <Button Name="addPhotos" Click="addPhotos_Click" Visibility="Visible">Добавить изображения</Button>
                     <Button Name="UpdatePhoto" Visibility="Collapsed" Click="UpdatePhoto_Click">Заменить изображение</Button>
+                        <Button Name="DeletPhoto" Click="DeletPhoto_Click" Visibility="Collapsed">Удалить фотографию</Button>
                         <Button Name="nazad" Click="nazad_Click" Visibility="Collapsed">Назад</Button>
                 </StackPanel>
                
