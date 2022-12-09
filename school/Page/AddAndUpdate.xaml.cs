@@ -341,7 +341,31 @@ namespace school.Page
 
         private void addPhotos_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                OpenFileDialog OFD = new OpenFileDialog();  // создаем диалоговое окно
+                OFD.Multiselect = true;  // открытие диалогового окна с возможностью выбора нескольких элементов
+                if (OFD.ShowDialog() == true)  // пока диалоговое окно открыто, будет в цикле записывать каждое выбранное изображение в БД
+                {
+                    foreach (string file in OFD.FileNames)  // цикл организован по именам выбранных файлов
+                    {
+                        ServicePhoto u =new ServicePhoto();
+                        u.ServiceID = ser.ID;
+                        path = file;  // извлекаем полный путь к картинке
+                        string[] arrayPath = path.Split('\\');  // разделяем путь к картинке в массив
+                        path = "\\" + arrayPath[arrayPath.Length - 2] + "\\" + arrayPath[arrayPath.Length - 1];  // записываем в бд путь, начиная с имени папки
+                        u.PhotoPath = path;
+                        ClassPage.Base.BD.ServicePhoto.Add(u);
+                       
+                    }
+                    ClassPage.Base.BD.SaveChanges();
+                    MessageBox.Show("Фото добавлены");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Что-то пошло не так");
+            }
         }
     }
 }
