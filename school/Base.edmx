@@ -248,7 +248,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ServicePhoto_Service">
-          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ServicePhoto" Type="Self.ServicePhoto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Service">
@@ -663,7 +665,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ServicePhoto_Service">
-          <End Type="school23Model.Service" Role="Service" Multiplicity="1" />
+          <End Type="school23Model.Service" Role="Service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="school23Model.ServicePhoto" Role="ServicePhoto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Service">
@@ -690,7 +694,7 @@
           <End Type="school23Model.Product" Role="Product" Multiplicity="*" />
           <End Type="school23Model.Product" Role="Product1" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

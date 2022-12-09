@@ -24,6 +24,7 @@ namespace school.Page
     {
         string path;
         bool flagUpdate;
+        bool flagUpdatePhoto;
         Service ser;
         ServicePhoto servicephoto;
        
@@ -35,6 +36,7 @@ namespace school.Page
         {
             InitializeComponent();
             flagUpdate = true;
+            
             this.ser = ser;
             NameYsl.Text = ser.Title;
             double skid = ser.Discount.Value * 100;
@@ -71,6 +73,8 @@ namespace school.Page
             }
         }
 
+
+     
         public bool SkidkaSer(string a)
         {
             try
@@ -141,7 +145,21 @@ namespace school.Page
 
         private void UpdatePhoto_Click(object sender, RoutedEventArgs e)
         {
+            List<ServicePhoto> servicePhoto = ClassPage.Base.BD.ServicePhoto.Where(x => x.ServiceID == ser.ID).ToList();
+            if (servicePhoto != null)  // если объект не пустой, начинает переводить байтовый массив в изображение
+            {
 
+                BitmapImage img = new BitmapImage(new Uri(servicePhoto[0].PhotoPath, UriKind.RelativeOrAbsolute));
+                ImageServis.Source = img;
+            }
+            Next.Visibility=Visibility.Visible;
+            Bakc.Visibility=Visibility.Visible;
+            sohranitPhoto.Visibility=Visibility.Visible;
+            addPhoto.Visibility=Visibility.Collapsed;
+            UpdatePhoto.Visibility=Visibility.Collapsed;
+            nazad.Visibility=Visibility.Visible;
+            addPhotos.Visibility = Visibility.Collapsed;
+           
         }
 
         private void add_Click(object sender, RoutedEventArgs e)
@@ -179,10 +197,7 @@ namespace school.Page
                                     {
                                         ser.Description = Opisanie.Text;
                                     }
-                                    
-                                       
 
-                                    
                                     ClassPage.Base.BD.Service.Add(ser);
                                     servicephoto = new ServicePhoto();
                                         servicephoto.ServiceID = ser.ID;
@@ -224,7 +239,7 @@ namespace school.Page
                                 {
                                     path = ser.MainImagePath;
                                 }
-                                if(path != null)
+                                if((path != null)&&(flagUpdatePhoto==false))
                                 {
                                     servicephoto = new ServicePhoto();
                                     servicephoto.ServiceID = ser.ID;
@@ -252,6 +267,81 @@ namespace school.Page
                 }
             }
             
+        }
+        int n = 0;
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            List<ServicePhoto> servicePhoto = ClassPage.Base.BD.ServicePhoto.Where(x => x.ServiceID == ser.ID).ToList();
+            n++;
+            if (Bakc.IsEnabled == false)
+            {
+                Bakc.IsEnabled = true;
+            }
+            if (servicePhoto != null)  // если объект не пустой, начинает переводить байтовый массив в изображение
+            {
+               
+                BitmapImage img = new BitmapImage(new Uri(servicePhoto[n].PhotoPath, UriKind.RelativeOrAbsolute));
+                ImageServis.Source = img;
+            }
+            if (n == servicePhoto.Count - 1)
+            {
+                Next.IsEnabled = false;
+            }
+        }
+    
+
+        private void Bakc_Click(object sender, RoutedEventArgs e)
+        {
+            List<ServicePhoto> u = ClassPage.Base.BD.ServicePhoto.Where(x => x.ServiceID == ser.ID).ToList();
+          
+            n--;
+            if (Next.IsEnabled == false)
+            {
+                Next.IsEnabled = true;
+            }
+            if (u != null)  // если объект не пустой, начинает переводить байтовый массив в изображение
+            {
+
+                BitmapImage img = new BitmapImage(new Uri(u[n].PhotoPath, UriKind.RelativeOrAbsolute));
+                ImageServis.Source = img;
+            }
+            if (n == 0)
+            {
+                Bakc.IsEnabled = false;
+            }
+        }
+
+        private void sohranitPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            flagUpdatePhoto=true;
+            List<ServicePhoto> u = ClassPage.Base.BD.ServicePhoto.Where(x => x.ServiceID == ser.ID).ToList();
+            ser.MainImagePath = u[n].PhotoPath;
+            ClassPage.Base.BD.SaveChanges();
+            MessageBox.Show("Фотография изменена");
+            Next.Visibility = Visibility.Collapsed;
+            Bakc.Visibility = Visibility.Collapsed;
+            sohranitPhoto.Visibility = Visibility.Collapsed;
+            addPhoto.Visibility = Visibility.Visible;
+            nazad.Visibility = Visibility.Collapsed;
+            UpdatePhoto.Visibility = Visibility.Visible;
+            addPhotos.Visibility = Visibility.Visible;
+        }
+
+        private void nazad_Click(object sender, RoutedEventArgs e)
+        {
+            flagUpdatePhoto=false;
+            Next.Visibility = Visibility.Collapsed;
+            Bakc.Visibility = Visibility.Collapsed;
+            sohranitPhoto.Visibility = Visibility.Collapsed;
+            addPhoto.Visibility = Visibility.Visible;
+            nazad.Visibility = Visibility.Collapsed;
+            UpdatePhoto.Visibility = Visibility.Visible;
+            addPhotos.Visibility = Visibility.Visible;
+        }
+
+        private void addPhotos_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

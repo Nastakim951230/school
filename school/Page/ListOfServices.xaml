@@ -85,8 +85,8 @@
             <ListView Name="ListYslovie" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Border Style="{StaticResource BorderStyle}" >
-                            <Grid Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                        <Border Style="{StaticResource BorderStyle}">
+                            <Grid Height="100" Width="2000" VerticalAlignment="Center"  Background="{Binding TextBrush}" HorizontalAlignment="Center" >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="300"/>
                                     <ColumnDefinition/>
@@ -104,7 +104,7 @@
                                             <TextBlock Name="NameYslygi" Text="{Binding Title}" Style="{StaticResource TextList}"></TextBlock>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Name="Price1" Text="{Binding pric}" TextDecorations="Strikethrough" Style="{StaticResource TextList}"></TextBlock>
-                                                <TextBlock Name="Price" Text="{Binding price_and_time}" Foreground="{Binding TextBrush}" Style="{StaticResource TextList}"></TextBlock>
+                                                <TextBlock Name="Price" Text="{Binding price_and_time}" Style="{StaticResource TextList}"></TextBlock>
                                             </StackPanel>
 
                                             <TextBlock Name="Skidka" Text="{Binding skidka}" Style="{StaticResource TextList}"></TextBlock>

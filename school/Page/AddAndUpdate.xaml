@@ -17,15 +17,22 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="300"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                
                     <StackPanel>
-                    <Image Name="ImageServis" Source="../Image/picture.png" Width="180" Height="180" ></Image>
-                    <Button Name="addPhoto" Click="addPhoto_Click">Добавить изображение</Button>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Name="Bakc" Click="Bakc_Click" Visibility="Collapsed" IsEnabled="False">&lt;</Button>
+                            <Image Name="ImageServis"  Source="../Image/picture.png" Width="180" Height="180" ></Image>
+                            <Button Name="Next"  Click="Next_Click" Visibility="Collapsed" >&gt;</Button>
+                        </StackPanel>
+                        <Button Name="sohranitPhoto" Click="sohranitPhoto_Click" Visibility="Collapsed">Сохранить изображение</Button>
+                    <Button Name="addPhoto" Click="addPhoto_Click" Visibility="Visible">Добавить изображение</Button>
+                        <Button Name="addPhotos" Click="addPhotos_Click" Visibility="Visible">Добавить изображения</Button>
                     <Button Name="UpdatePhoto" Visibility="Collapsed" Click="UpdatePhoto_Click">Заменить изображение</Button>
+                        <Button Name="nazad" Click="nazad_Click" Visibility="Collapsed">Назад</Button>
                 </StackPanel>
                
             </Grid>

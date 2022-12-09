@@ -46,11 +46,11 @@ namespace school
 
                 if (Discount == 0)
                 {
-                    return (SolidColorBrush)(Brush)brushConverter.ConvertFrom("#000");
+                    return (SolidColorBrush)(Brush)brushConverter.ConvertFrom("#FFFFFF");
                 }
                 else
                 {
-                    return (SolidColorBrush)(Brush)brushConverter.ConvertFrom("#309c09");
+                    return (SolidColorBrush)(Brush)brushConverter.ConvertFrom("#e7fabf");
 
                 }
 
