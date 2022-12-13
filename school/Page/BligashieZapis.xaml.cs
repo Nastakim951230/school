@@ -13,26 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace school
+namespace school.Page
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для BligashieZapis.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BligashieZapis 
     {
-    
-        public MainWindow()
+        public BligashieZapis()
         {
             InitializeComponent();
-            ClassPage.Base.BD=new BDBase();
-            PanelDann.Navigate(new Page.ListOfServices());
-            ClassPage.FrameNavigate.perehod = PanelDann;
-            PanelHapka.Navigate(new Page.Hapka());
-            ClassPage.FrameNavigate.hapka = PanelHapka;
-
-
+            Zapisi.ItemsSource = ClassPage.Base.BD.ClientService.ToList();
         }
-
- 
     }
 }

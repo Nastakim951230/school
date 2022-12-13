@@ -27,7 +27,8 @@ namespace school.Page
         private void add_Click(object sender, RoutedEventArgs e)
         {
             Page.ListOfServices.admin = adminkod.Text;
-           
+            Page.Hapka.kod = adminkod.Text;
+
             this.Close();
         }
     }

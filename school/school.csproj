@@ -70,6 +70,7 @@
       <DependentUpon>Base.tt</DependentUpon>
     </Compile>
     <Compile Include="ClassClient.cs" />
+    <Compile Include="ClassClientServer.cs" />
     <Compile Include="ClassPage\Base.cs" />
     <Compile Include="ClassPage\FrameNavigate.cs" />
     <Compile Include="ClassServer.cs" />
@@ -96,6 +97,12 @@
     </Compile>
     <Compile Include="Page\Admin.xaml.cs">
       <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\BligashieZapis.xaml.cs">
+      <DependentUpon>BligashieZapis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\Hapka.xaml.cs">
+      <DependentUpon>Hapka.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page\ListOfServices.xaml.cs">
       <DependentUpon>ListOfServices.xaml</DependentUpon>
@@ -152,6 +159,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page\Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\BligashieZapis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\Hapka.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

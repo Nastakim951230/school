@@ -12,26 +12,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="#e7fabf">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
-                
-                
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <Image Height="70" Source="./Image/school_logo.ico" Style="{StaticResource ImageLogo}"></Image>
-                    <TextBlock VerticalAlignment="Center" Style="{StaticResource LogoText}">Леарн</TextBlock>
-                </StackPanel>
-            </Grid>
-            <Grid Grid.Column="1">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-                    <Button Name="Yslygi" Click="Yslygi_Click">Услуги</Button>
-                    <Button Name="admin" Click="admin_Click">Админ</Button>
-                   
-                </StackPanel>
-            </Grid>
-         
+            <Frame Name="PanelHapka"  NavigationUIVisibility="Hidden"></Frame>
+
         </Grid>
         <Grid Grid.Row="1">
             <Frame Name="PanelDann"  NavigationUIVisibility="Hidden"></Frame>

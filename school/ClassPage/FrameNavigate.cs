@@ -10,5 +10,6 @@ namespace school.ClassPage
     internal class FrameNavigate
     {
         public static Frame perehod;
+        public static Frame hapka;
     }
 }
