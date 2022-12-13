@@ -82,11 +82,11 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="2">
-            <ListView Name="ListYslovie" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListView Name="ListYslovie" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Style="{StaticResource BorderStyle}">
-                            <Grid Height="100" Width="2000" VerticalAlignment="Center"  Background="{Binding TextBrush}" HorizontalAlignment="Center" >
+                            <Grid Height="100"  VerticalAlignment="Center"  Background="{Binding TextBrush}"  >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="300"/>
                                     <ColumnDefinition/>
@@ -112,6 +112,7 @@
                                     </Grid>
                                     <Grid Grid.Row="1" >
                                         <StackPanel Orientation="Horizontal">
+                                            <Button Uid="{Binding ID}" Name="ZApis" Click="ZApis_Click">Записать</Button>
                                             <Button Uid="{Binding ID}" Name="Delet" Click="Delet_Click" Visibility="{Binding btn_admin}" >Удаление</Button>
                                             <Button Uid="{Binding ID}" Name="Update" Click="Update_Click" Visibility="{Binding btn_admin}">Редактирование</Button>
                                         </StackPanel>

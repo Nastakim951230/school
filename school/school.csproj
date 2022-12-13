@@ -69,6 +69,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Base.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClassClient.cs" />
     <Compile Include="ClassPage\Base.cs" />
     <Compile Include="ClassPage\FrameNavigate.cs" />
     <Compile Include="ClassServer.cs" />
@@ -89,6 +90,9 @@
     </Compile>
     <Compile Include="Page\AddAndUpdate.xaml.cs">
       <DependentUpon>AddAndUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\AddEslegi.xaml.cs">
+      <DependentUpon>AddEslegi.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page\Admin.xaml.cs">
       <DependentUpon>Admin.xaml</DependentUpon>
@@ -140,6 +144,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Page\AddAndUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\AddEslegi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

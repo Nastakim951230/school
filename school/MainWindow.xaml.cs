@@ -44,5 +44,6 @@ namespace school
             ClassPage.FrameNavigate.perehod.Navigate(new Page.ListOfServices());
         }
 
+      
     }
 }

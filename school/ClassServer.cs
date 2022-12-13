@@ -74,6 +74,14 @@ namespace school
                 }
             }
         }
+        public string time
+        {
+            get
+            {
+                int time = DurationInSeconds / 60;
+                return time+ " минут";
+            }
+        }
         public string pric
 
         {

@@ -226,5 +226,13 @@ namespace school.Page
             Service serv = ClassPage.Base.BD.Service.FirstOrDefault(x => x.ID == id);
             ClassPage.FrameNavigate.perehod.Navigate(new Page.AddAndUpdate(serv));
         }
+
+        private void ZApis_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int id = Convert.ToInt32(btn.Uid);
+            Service serv = ClassPage.Base.BD.Service.FirstOrDefault(x => x.ID == id);
+            ClassPage.FrameNavigate.perehod.Navigate(new Page.AddEslegi(serv));
+        }
     }
 }
