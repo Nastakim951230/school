@@ -23,6 +23,7 @@ namespace school.Page
     public partial class AddEslegi
     {
         Service ser;
+        ClientService client;
         public AddEslegi(Service ser)
         {
             InitializeComponent();
@@ -80,6 +81,33 @@ namespace school.Page
         private void mm_TextChanged(object sender, TextChangedEventArgs e)
         {
             TIMER();
+        }
+
+        
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            if (FIOClient.Text == "" || hh.Text == "" || mm.Text == ""|| StarDate.Text=="")
+            {
+                MessageBox.Show("Обязательные поля не заполнены", "Ошибка", MessageBoxButton.OK);
+            }
+            else
+            {
+                client = new ClientService();
+                client.ServiceID = ser.ID;
+                client.ClientID = FIOClient.SelectedIndex + 1;
+                string date = StarDate.Text;
+                string[] Dat = date.Split('.');
+                int h = Convert.ToInt32(hh.Text);
+                int m = Convert.ToInt32(mm.Text);
+                DateTime dateStar = new DateTime(Convert.ToInt32(Dat[2]), Convert.ToInt32(Dat[1]), Convert.ToInt32(Dat[0]), h, m, 0);
+                client.StartTime = dateStar;
+                ClassPage.Base.BD.ClientService.Add(client);
+
+                ClassPage.Base.BD.SaveChanges();
+                MessageBox.Show("Клиент записан");
+
+                ClassPage.FrameNavigate.perehod.Navigate(new Page.ListOfServices());
+            }
         }
     }
 }
