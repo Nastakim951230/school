@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition/>
-            <RowDefinition/>
+            
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -31,18 +31,24 @@
                 <GroupBox Header="Введие дату записи">
                     <DatePicker></DatePicker>
                 </GroupBox>
+                <StackPanel Orientation="Horizontal">
+                    <GroupBox Header="Введите время начала" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBox Name="hh" Width="30" TextChanged="hh_TextChanged" Style="{StaticResource TextBoxText}"></TextBox>
+                            <TextBlock Style="{StaticResource TextBlockText}" FontSize="16">:</TextBlock>
+                            <TextBox Name="mm" Width="30" TextChanged="mm_TextChanged" Style="{StaticResource TextBoxText}"></TextBox>
+                            
+                        </StackPanel>
+
+
+                    </GroupBox>
+                    <GroupBox Header="Время конца" >
+                        <TextBlock Name="TimeEnd"></TextBlock>
+                    </GroupBox>
+                </StackPanel>
+
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <StackPanel>
-                    <GroupBox Header="Введите время "></GroupBox>
-                </StackPanel>
-            </Grid>
-        </Grid>
+      
     </Grid>
 </Page>
