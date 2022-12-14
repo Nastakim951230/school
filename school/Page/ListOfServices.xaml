@@ -112,7 +112,7 @@
                                     </Grid>
                                     <Grid Grid.Row="1" >
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Uid="{Binding ID}" Name="ZApis" Click="ZApis_Click">Записать</Button>
+                                            <Button Uid="{Binding ID}" Name="ZApis" Click="ZApis_Click" Visibility="{Binding btn_admin}">Записать</Button>
                                             <Button Uid="{Binding ID}" Name="Delet" Click="Delet_Click" Visibility="{Binding btn_admin}" >Удаление</Button>
                                             <Button Uid="{Binding ID}" Name="Update" Click="Update_Click" Visibility="{Binding btn_admin}">Редактирование</Button>
                                         </StackPanel>

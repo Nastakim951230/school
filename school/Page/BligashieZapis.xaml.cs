@@ -23,7 +23,10 @@ namespace school.Page
         public BligashieZapis()
         {
             InitializeComponent();
-            Zapisi.ItemsSource = ClassPage.Base.BD.ClientService.ToList();
+            DateTime date = DateTime.Today;
+            DateTime data = date.AddDays(2);
+            List<ClientService> ser = ClassPage.Base.BD.ClientService.Where(x => x.StartTime >= DateTime.Today && x.StartTime < data).ToList();
+            Zapisi.ItemsSource = ser.OrderBy(x => x.StartTime).ToList();
         }
     }
 }

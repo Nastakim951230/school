@@ -9,27 +9,39 @@
       Title="BligashieZapis">
 
     <Grid>
-        <ListView Name="Zapisi" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch">
+        <ListView Name="Zapisi" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalContentAlignment="Stretch" AlternationCount="2">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Style.Triggers>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                            <Setter Property="Background" Value="#e7fabf" />
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Style="{StaticResource BorderStyle}">
-                        <Grid   VerticalAlignment="Center"  Background="{Binding TextBrush}"  >
+                        <Grid   VerticalAlignment="Center"    >
                             <StackPanel>
-                                <GroupBox Header="Наименование услуги">
-                                    <TextBlock Text="{Binding Service.Title}"></TextBlock>
-                                </GroupBox>
-                                <GroupBox Header="ФИО клиента">
-                                    <TextBlock Text="{Binding Client.FIO}"></TextBlock>
-                                </GroupBox>
-                                <GroupBox Header="Email">
-                                    <TextBlock Text="{Binding Client.Email}"></TextBlock>
-                                </GroupBox>
-                                <GroupBox Header="Телефон">
-                                    <TextBlock Text="{Binding Client.Phone}"></TextBlock>
-                                </GroupBox>
-                                <GroupBox Header="Дата и Время записи">
-                                    <TextBlock Text="{Binding StartTime}"></TextBlock>
-                                </GroupBox>
+                         
+                                    <TextBlock Text="{Binding Service.Title,StringFormat=Наименование услуги: {0}}"></TextBlock>
+                            
+                              
+                                    <TextBlock Text="{Binding Client.FIO,StringFormat=ФИО клиента: {0}}"></TextBlock>
+                            
+                                
+                                    <TextBlock Text="{Binding Client.Email,StringFormat=Email: {0}}"></TextBlock>
+                                
+                               
+                                    <TextBlock Text="{Binding Client.Phone,StringFormat=Телефон: {0}}"></TextBlock>
+                                
+                               
+                                    <TextBlock Text="{Binding StartTime, StringFormat=Дата и Время записи: {0:dd MMMM yyyy HH:mm}}"></TextBlock>
+                               
                             </StackPanel>
                         </Grid>
                     </Border>
