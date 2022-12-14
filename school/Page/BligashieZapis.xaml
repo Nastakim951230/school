@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:school.Page"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800" Loaded="Page_Loaded"
       Title="BligashieZapis">
 
     <Grid>
@@ -38,10 +38,11 @@
                                 
                                
                                     <TextBlock Text="{Binding Client.Phone,StringFormat=Телефон: {0}}"></TextBlock>
-                                
-                               
-                                    <TextBlock Text="{Binding StartTime, StringFormat=Дата и Время записи: {0:dd MMMM yyyy HH:mm}}"></TextBlock>
-                               
+
+
+                                <TextBlock Text="{Binding StartTime, StringFormat=Дата и Время записи: {0:dd MMMM yyyy HH:mm}}"></TextBlock>
+
+                                <TextBlock Text="{Binding RemainingTime,StringFormat=Оставшееся время до приёма: {0}}" Foreground="{Binding UpcomingEntriesColor}"/>
                             </StackPanel>
                         </Grid>
                     </Border>

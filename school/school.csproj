@@ -70,6 +70,7 @@
       <DependentUpon>Base.tt</DependentUpon>
     </Compile>
     <Compile Include="ClassClient.cs" />
+    <Compile Include="ClassClientServer.cs" />
     <Compile Include="ClassPage\Base.cs" />
     <Compile Include="ClassPage\FrameNavigate.cs" />
     <Compile Include="ClassServer.cs" />
