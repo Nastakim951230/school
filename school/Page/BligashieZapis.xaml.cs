@@ -28,6 +28,7 @@ namespace school.Page
             DateTime data = date.AddDays(2);
             List<ClientService> ser = ClassPage.Base.BD.ClientService.Where(x => x.StartTime >= DateTime.Today && x.StartTime < data).ToList();
             Zapisi.ItemsSource = ser.OrderBy(x => x.StartTime).ToList();
+            loadedData();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
