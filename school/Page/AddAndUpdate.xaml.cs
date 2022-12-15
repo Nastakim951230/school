@@ -135,7 +135,7 @@ namespace school.Page
             path = OFD.FileName;  // извлекаем полный путь к картинке
             string[] arrayPath = path.Split('\\');  // разделяем путь к картинке в массив
             path = "\\" + arrayPath[arrayPath.Length - 2] + "\\" + arrayPath[arrayPath.Length - 1];  // записываем в бд путь, начиная с имени папки
-               List<ServicePhoto> photos = ClassPage.Base.BD.ServicePhoto.Where(x=>x.ServiceID == ser.ID).ToList();
+                List<ServicePhoto> photos = ClassPage.Base.BD.ServicePhoto.Where(x=>x.ServiceID == ser.ID).ToList();
                 if(photos.Count==0)
                 {
                     servicephoto = new ServicePhoto();
